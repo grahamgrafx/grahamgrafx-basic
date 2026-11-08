@@ -1,7 +1,54 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graham Smith — Digital Operations</title>
+  <meta name="description" content="Graham Smith, Digital Operations Manager at Vineyard Gazette Media Group.">
+  <meta property="og:title" content="Graham Smith">
+  <meta property="og:description" content="Digital Operations Manager, Vineyard Gazette Media Group">
+  <meta property="og:image" content="headshot.jpg">
+  <style>
+    :root { --bg:#fafaf8; --fg:#1c1c1c; --muted:#6b6b6b; --line:#e2e2de; --accent:#1c1c1c; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#141414; --fg:#f2f2f0; --muted:#9a9a96; --line:#2c2c2a; --accent:#f2f2f0; }
+    }
+    * { box-sizing:border-box; margin:0; }
+    body {
+      min-height:100vh; display:grid; place-items:center; padding:2rem;
+      background:var(--bg); color:var(--fg);
+      font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+    main { max-width:420px; text-align:center; }
+    img {
+      width:120px; height:120px; border-radius:50%; object-fit:cover;
+      border:1px solid var(--line); margin-bottom:1.5rem;
+    }
+    h1 { font-size:1.9rem; font-weight:600; letter-spacing:-0.02em; }
+    .title { margin-top:.4rem; color:var(--muted); font-size:1rem; }
+    .tagline { margin:1.5rem 0 2rem; line-height:1.55; font-size:1.05rem; }
+    nav { display:flex; flex-direction:column; gap:.75rem; }
+    a.btn {
+      display:block; padding:.85rem 1rem; border:1px solid var(--accent);
+      border-radius:8px; color:var(--fg); text-decoration:none; font-weight:500;
+      transition:background .15s, color .15s;
+    }
+    a.btn.primary, a.btn:hover { background:var(--accent); color:var(--bg); }
+    footer { margin-top:2.5rem; color:var(--muted); font-size:.85rem; }
+  </style>
 </head>
 <body>
-grahamgrafx@gmail.com
+  <main>
+    <img src="headshot.jpg" alt="Graham Smith">
+    <h1>Graham Smith</h1>
+    <p class="title">Digital Operations Manager · Vineyard Gazette Media Group</p>
+    <p class="tagline">Publishing infrastructure, web platforms, and ad systems for independent media.</p>
+    <nav>
+      <a class="btn primary" href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a>
+      <a class="btn" href="mailto:you@example.com">Email</a>
+      <a class="btn" href="graham-smith.vcf" download>Save Contact</a>
+    </nav>
+    <footer>Martha's Vineyard, MA</footer>
+  </main>
 </body>
 </html>
