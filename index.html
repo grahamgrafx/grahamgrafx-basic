@@ -28,27 +28,57 @@
     .title { margin-top:.4rem; color:var(--muted); font-size:1rem; }
     .tagline { margin:1.5rem 0 2rem; line-height:1.55; font-size:1.05rem; }
     nav { display:flex; flex-direction:column; gap:.75rem; }
-    a.btn {
-      display:block; padding:.85rem 1rem; border:1px solid var(--accent);
-      border-radius:8px; color:var(--fg); text-decoration:none; font-weight:500;
+    .btn {
+      display:block; width:100%; padding:.85rem 1rem; border:1px solid var(--accent);
+      border-radius:8px; background:none; color:var(--fg); text-decoration:none;
+      font:inherit; font-weight:500; cursor:pointer;
       transition:background .15s, color .15s;
     }
-    a.btn.primary, a.btn:hover { background:var(--accent); color:var(--bg); }
+    .btn.primary, .btn:hover { background:var(--accent); color:var(--bg); }
     footer { margin-top:2.5rem; color:var(--muted); font-size:.85rem; }
   </style>
 </head>
 <body>
   <main>
-    <img src="headshot.jpg" alt="Graham Smith">
+    <img src="https://media.licdn.com/dms/image/v2/D4D03AQHTINHD9KN77Q/profile-displayphoto-scale_400_400/B4DZqU1bVWKUAg-/0/1763433625932?e=1795651200&v=beta&t=wu-FdGl8D6smklHhjVwQi-jdwafgduaeesrv5Tzm7u4" alt="Graham Smith">
     <h1>Graham Smith</h1>
-    <p class="title">Digital Operations Manager · Vineyard Gazette Media Group</p>
+    <p class="title">Digital Operations</p>
     <p class="tagline">Publishing infrastructure, web platforms, and ad systems for independent media.</p>
     <nav>
       <a class="btn primary" href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a>
-      <a class="btn" href="mailto:you@example.com">Email</a>
-      <a class="btn" href="graham-smith.vcf" download>Save Contact</a>
+      <button class="btn" id="save-contact" type="button">Save Contact</button>
     </nav>
     <footer>Martha's Vineyard, MA</footer>
   </main>
+
+  <script>
+    document.getElementById('save-contact').addEventListener('click', function () {
+      // Email is split up so it never appears whole in the page source
+      var u = ['grahamgrafx'].join('');
+      var d = ['gmail', 'com'].join('.');
+      var email = u + '@' + d;
+
+      var lines = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Smith;Graham;;;',
+        'FN:Graham Smith',
+        'TITLE:Digital Operations ',
+        'EMAIL;TYPE=INTERNET,WORK:' + email,
+        'URL:https://www.linkedin.com/in/grahamgrafx',
+        'ADR;TYPE=WORK:;;;Martha\'s Vineyad;MA;;USA',
+        'END:VCARD'
+      ];
+
+      var blob = new Blob([lines.join('\r\n')], { type: 'text/vcard' });
+      var link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Graham-Smith.vcf';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
+    });
+  </script>
 </body>
 </html>
