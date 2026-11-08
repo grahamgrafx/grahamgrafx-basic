@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Graham Smith — Digital Operations Manager. Publishing infrastructure, web platforms, and CMS operations for independent media.">
   <meta name="author" content="Graham Smith">
+  <meta property="og:title" content="Graham Smith">
+  <meta property="og:description" content="Digital Operations Manager, Vineyard Gazette Media Group">
+  <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D4D03AQHTINHD9KN77Q/profile-displayphoto-scale_400_400/B4DZqU1bVWKUAg-/0/1763433625932?e=1795651200&v=beta&t=wu-FdGl8D6smklHhjVwQi-jdwafgduaeesrv5Tzm7u4">
   <title>Graham Smith — Digital Operations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,6 +66,23 @@
       padding: 1.5rem 0 2rem;
       border-bottom: 1px solid var(--line);
       margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      overflow: hidden;
+    }
+
+    .headshot {
+      float: right;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      margin: 0 0 1rem 1.25rem;
+      background: var(--card);
+      box-shadow: 0 0 0 4px var(--glow-wash);
     }
 
     .eyebrow {
@@ -125,10 +145,12 @@
       gap: 0.4rem;
       padding: 0.65rem 1.05rem;
       border-radius: 999px;
+      font: inherit;
       font-weight: 600;
       font-size: 0.95rem;
       text-decoration: none;
       border: 1px solid transparent;
+      cursor: pointer;
       transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
     }
 
@@ -310,6 +332,59 @@
       font-size: 0.92rem;
     }
 
+    .award {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .award:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .award-title {
+      margin: 0 0 0.2rem;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .award-meta {
+      margin: 0 0 0.65rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .award blockquote {
+      margin: 0 0 0.65rem;
+      padding: 0.75rem 0.9rem;
+      border-left: 3px solid var(--glow);
+      background: var(--glow-wash);
+      border-radius: 0 8px 8px 0;
+      color: var(--ink-soft);
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+    .award blockquote cite {
+      display: block;
+      margin-top: 0.45rem;
+      font-style: normal;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .award-note {
+      margin: 0 0 0.55rem;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    .award-link {
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
     /* Footer */
     footer {
       margin-top: 2.5rem;
@@ -323,8 +398,28 @@
       gap: 0.5rem 1rem;
     }
 
-    footer a {
+    footer a,
+    footer .linkish {
       font-weight: 600;
+    }
+
+    .linkish {
+      appearance: none;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      color: var(--accent);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .linkish:hover {
+      color: var(--glow-deep);
     }
 
     @media (max-width: 520px) {
@@ -333,12 +428,36 @@
         padding-top: 1.5rem;
       }
 
-      .job-dates {
-        white-space: normal;
+      .headshot {
+        float: none;
+        display: block;
+        margin: 0 auto 1.25rem;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .eyebrow {
+        justify-content: center;
+      }
+
+      .tagline {
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .actions {
         width: 100%;
+        justify-content: center;
+      }
+
+      .meta-row {
+        justify-content: center;
+      }
+
+      .job-dates {
+        white-space: normal;
       }
 
       .btn {
@@ -362,6 +481,12 @@
         display: none;
       }
 
+      .headshot {
+        width: 90px;
+        height: 90px;
+        box-shadow: none;
+      }
+
       .skill-block {
         box-shadow: none;
         break-inside: avoid;
@@ -377,28 +502,35 @@
 <body>
   <div class="wrap">
     <header class="hero">
-      <div class="eyebrow">grahamgrafx.com</div>
-      <h1>Graham Smith</h1>
-      <p class="role">Digital Operations Manager / Webmaster</p>
-      <p class="tagline">
-        Publishing infrastructure, web platforms, and ad systems for independent media.
-      </p>
-      <div class="actions">
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/grahamgrafx" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn btn-ghost" href="mailto:grahamgrafx@gmail.com">Email</a>
-        <a class="btn btn-ghost" id="save-contact" download="Graham-Smith.vcf" href="#">Save Contact</a>
-      </div>
-      <div class="meta-row">
-        <span>Martha&rsquo;s Vineyard, MA</span>
-        <span><a href="mailto:grahamgrafx@gmail.com">grahamgrafx@gmail.com</a></span>
-        <span><a href="tel:+15168848456">516-884-8456</a></span>
+      <img
+        class="headshot"
+        src="https://media.licdn.com/dms/image/v2/D4D03AQHTINHD9KN77Q/profile-displayphoto-scale_400_400/B4DZqU1bVWKUAg-/0/1763433625932?e=1795651200&amp;v=beta&amp;t=wu-FdGl8D6smklHhjVwQi-jdwafgduaeesrv5Tzm7u4"
+        width="120"
+        height="120"
+        alt="Graham Smith"
+      >
+      <div class="hero-copy">
+        <div class="eyebrow">grahamgrafx.com</div>
+        <h1>Graham Smith</h1>
+        <p class="role">Digital Operations</p>
+        <p class="tagline">
+          Publishing infrastructure, Applied AI, and CMS Administration for independent media.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/grahamgrafx" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <button class="btn btn-ghost" id="save-contact" type="button">Save Contact</button>
+        </div>
+        <div class="meta-row">
+          <span>Martha&rsquo;s Vineyard, MA</span>
+          <span><a href="tel:+15168848456">516-884-8456</a></span>
+        </div>
       </div>
     </header>
 
     <section aria-labelledby="summary-heading">
       <h2 id="summary-heading">Summary</h2>
       <p class="summary">
-        Fourteen years running web publishing for a multi-brand news organization —
+        Fourteen years running web publishing for a multi-brand news organization,
         six sites on Drupal and WordPress, about 2M visitors a year. I build and publish
         content, handle day-to-day CMS work, QA launches, and field requests from editorial,
         sales, and business teams. I write the documentation that helps people publish without
@@ -412,21 +544,36 @@
 
       <article class="job">
         <div class="job-head">
-          <h3 class="job-title">Digital Operations Manager / Webmaster</h3>
-          <span class="job-dates">Apr 2012 – Present</span>
+          <h3 class="job-title">Director of Digital</h3>
+          <span class="job-dates">2026 – Present</span>
         </div>
         <p class="job-org"><strong>Vineyard Gazette Media Group</strong> · Martha&rsquo;s Vineyard, MA</p>
         <p class="job-blurb">
-          The web department for a 180-year-old newspaper group: CMS admin, publishing support,
-          and production troubleshooting across 4 Drupal brands and 2 WordPress sites
-          (~2M annual visitors, 80,000+ content nodes).
+          Lead digital strategy across editorial, technology, audience, and revenue for a
+          multi-brand news organization (~2M annual visitors).
         </p>
         <ul>
-          <li>Publish and maintain content in Drupal 10 multisite and WordPress — content types, templates, permissions, and section pages (Real Estate, Obituaries, Classifieds, and others).</li>
-          <li>First call for web issues from the newsroom and business side; triage requests, set expectations, escalate to contractors when needed.</li>
+          <li>Own the digital roadmap - goals for readership, subscribers, traffic, engagement, and revenue; coordinate priorities across editorial, advertising, marketing, and operations.</li>
+          <li>Oversee websites and newsletters (delivery, UX, SEO, speed, accessibility); manage vendor and developer relationships with written requirements and clear status updates.</li>
+          <li>Partner with sales and marketing on digital advertising and products; evaluate AI and technology tools that improve efficiency, audience engagement, and revenue.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <h3 class="job-title">Digital Operations Manager / Webmaster</h3>
+          <span class="job-dates">Apr 2012 – 2026</span>
+        </div>
+        <p class="job-org"><strong>Vineyard Gazette Media Group</strong> · Martha&rsquo;s Vineyard, MA</p>
+        <p class="job-blurb">
+          Sole web department for a 180-year-old newspaper group: CMS admin, publishing support,
+          and production troubleshooting across 4 Drupal brands and 2 WordPress sites
+          (80,000+ content nodes).
+        </p>
+        <ul>
           <li>Led migrations from legacy systems through Drupal 6 to Drupal 10, including content-model mapping, database splitting, and launch QA on staging and production.</li>
-          <li>Write workflow docs, migration runbooks, and onboarding notes so editors can work consistently across brands.</li>
-          <li>Debug CMS, front-end, caching (Varnish, Cloudflare), and ad/analytics integrations when something breaks before or after publish.</li>
+          <li>First call for web issues from the newsroom and business side; triage requests, set expectations, and escalate to contractors when needed.</li>
+          <li>Publish and maintain content in Drupal multisite and WordPress; write workflow docs and onboarding notes so editors can publish without waiting on engineering.</li>
           <li>Helped plan a subscription pricing change (2025) affecting hundreds of subscribers — documented rules, checked data, kept support load manageable.</li>
         </ul>
       </article>
@@ -495,21 +642,42 @@
     </section>
 
     <section aria-labelledby="awards-heading">
-      <h2 id="awards-heading">Awards</h2>
-      <ul class="list-plain">
-        <li>
-          <strong>NENPA — Best Overall Website</strong>
-          <span class="detail">2026, 2022 · Vineyard Gazette</span>
-        </li>
-        <li>
-          <strong>EPPY — Best Newspaper Site</strong>
-          <span class="detail">2020</span>
-        </li>
-        <li>
-          <strong>NENPA — Digital Strategy Excellence</strong>
-          <span class="detail">2014</span>
-        </li>
-      </ul>
+      <h2 id="awards-heading">Awards &amp; Recognition</h2>
+
+      <article class="award">
+        <h3 class="award-title">NENPA — Best Overall Website (1st)</h3>
+        <p class="award-meta">New England Newspaper &amp; Press Association · associated with Vineyard Gazette · also 2026</p>
+        <blockquote>
+          “The Gazette and its webmaster Graham Smith won two first place awards for the newspaper’s digital presence: an overall award for the vineyardgazette.com website and another for website interactivity and engagement.”
+        </blockquote>
+        <a class="award-link" href="https://vineyardgazette.com/news/2022/05/02/gazette-wins-top-honors-annual-newspaper-competition" target="_blank" rel="noopener noreferrer">Read Gazette coverage →</a>
+      </article>
+
+      <article class="award">
+        <h3 class="award-title">Website Interactivity and Engagement (1st)</h3>
+        <p class="award-meta">New England Newspaper &amp; Press Association (NENPA) · May 2021 · associated with Vineyard Gazette</p>
+        <p class="award-note">Covid timeline and emergency update webpage built within 24 hours — submitted as an example.</p>
+        <a class="award-link" href="https://vineyardgazette.com/news/2021/04/09/gazette-wins-general-excellence-newspaper-convention" target="_blank" rel="noopener noreferrer">Read Gazette coverage →</a>
+      </article>
+
+      <article class="award">
+        <h3 class="award-title">EPPY Award — Best Newspaper Site</h3>
+        <p class="award-meta">Editor &amp; Publisher · Oct 2020 · under 1 million unique monthly visitors · associated with Vineyard Gazette</p>
+        <blockquote>
+          “This is a tremendous honor, and a credit not only to the editors, reporters and photographers who keep our site fresh and compelling every day, but to our webmaster Graham Smith who is constantly making technical and design improvements to keep it robust,” said publisher Jane Seagrave.
+          <cite>— Jane Seagrave, Publisher</cite>
+        </blockquote>
+        <a class="award-link" href="https://vineyardgazette.com/news/2020/10/27/gazette-wins-top-eppy-award-its-website" target="_blank" rel="noopener noreferrer">Read Gazette coverage →</a>
+      </article>
+
+      <article class="award">
+        <h3 class="award-title">Digital Strategy Excellence &amp; Website Design (1st)</h3>
+        <p class="award-meta">New England Newspaper and Press Association · Apr 2014 · associated with Vineyard Gazette</p>
+        <blockquote>
+          “Sponsored by the New England Newspaper and Press Association, the contest spanned a 12-month time period from August 2012 through July 2013. In addition to the overall website prize, the Gazette won special recognition for digital strategy excellence as well as three other digital prizes, including another first place for website design.”
+        </blockquote>
+        <a class="award-link" href="https://vineyardgazette.com/news/2014/02/09/gazette-website-wins-top-prize-newspaper-competition" target="_blank" rel="noopener noreferrer">Read Gazette coverage →</a>
+      </article>
     </section>
 
     <section aria-labelledby="education-heading">
@@ -531,38 +699,50 @@
     </section>
 
     <footer>
-      <span>Graham Smith · Digital Operations</span>
+      <span>Graham Smith · Director of Digital</span>
       <span>
         <a href="https://www.linkedin.com/in/grahamgrafx" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         ·
-        <a href="mailto:grahamgrafx@gmail.com">Email</a>
+        <button class="linkish" id="save-contact-footer" type="button">Save Contact</button>
       </span>
     </footer>
   </div>
 
   <script>
-    (function () {
-      var vcard = [
+    function downloadVCard() {
+      // Email is split so it never appears whole in the page source
+      var u = ["grahamgrafx"].join("");
+      var d = ["gmail", "com"].join(".");
+      var email = u + "@" + d;
+
+      var lines = [
         "BEGIN:VCARD",
         "VERSION:3.0",
         "N:Smith;Graham;;;",
         "FN:Graham Smith",
-        "TITLE:Digital Operations Manager / Webmaster",
+        "TITLE:Director of Digital",
         "ORG:Vineyard Gazette Media Group",
-        "EMAIL;TYPE=INTERNET:grahamgrafx@gmail.com",
+        "EMAIL;TYPE=INTERNET,WORK:" + email,
         "TEL;TYPE=CELL:516-884-8456",
-        "ADR;TYPE=HOME:;;Martha's Vineyard;MA;;;USA",
         "URL:https://grahamgrafx.com",
         "URL:https://www.linkedin.com/in/grahamgrafx",
+        "ADR;TYPE=WORK:;;;Martha's Vineyard;MA;;USA",
         "NOTE:Publishing infrastructure, web platforms, and ad systems for independent media.",
         "END:VCARD"
-      ].join("\r\n");
+      ];
 
-      var link = document.getElementById("save-contact");
-      if (link) {
-        link.href = "data:text/vcard;charset=utf-8," + encodeURIComponent(vcard);
-      }
-    })();
+      var blob = new Blob([lines.join("\r\n")], { type: "text/vcard" });
+      var link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "Graham-Smith.vcf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
+    }
+
+    document.getElementById("save-contact").addEventListener("click", downloadVCard);
+    document.getElementById("save-contact-footer").addEventListener("click", downloadVCard);
   </script>
 </body>
 </html>
