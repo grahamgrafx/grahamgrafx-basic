@@ -3,12 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Graham Smith — Digital Operations Manager. Publishing infrastructure, web platforms, and CMS operations for independent media.">
+  <meta name="description" content="Graham Smith — Director of Digital. Publishing infrastructure, web platforms, and CMS operations for independent media.">
   <meta name="author" content="Graham Smith">
+  <link rel="canonical" href="https://grahamgrafx.com/">
+  <link rel="me" href="https://www.linkedin.com/in/grahamgrafx">
+  <meta property="og:type" content="profile">
   <meta property="og:title" content="Graham Smith">
-  <meta property="og:description" content="Digital Operations Manager, Vineyard Gazette Media Group">
-  <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D4D03AQHTINHD9KN77Q/profile-displayphoto-scale_400_400/B4DZqU1bVWKUAg-/0/1763433625932?e=1795651200&v=beta&t=wu-FdGl8D6smklHhjVwQi-jdwafgduaeesrv5Tzm7u4">
+  <meta property="og:description" content="Director of Digital, Vineyard Gazette Media Group">
+  <meta property="og:url" content="https://grahamgrafx.com/">
+  <meta property="og:image" content="https://grahamgrafx.com/contact-photo.jpg">
+  <meta property="profile:first_name" content="Graham">
+  <meta property="profile:last_name" content="Smith">
   <title>Graham Smith — Digital Operations</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "dateModified": "2026-11-10",
+    "url": "https://grahamgrafx.com/",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Graham Smith",
+      "url": "https://grahamgrafx.com/",
+      "image": "https://grahamgrafx.com/contact-photo.jpg",
+      "jobTitle": "Director of Digital",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Vineyard Gazette Media Group"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Martha's Vineyard",
+        "addressRegion": "MA",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-516-884-8456",
+      "sameAs": [
+        "https://www.linkedin.com/in/grahamgrafx"
+      ],
+      "description": "Fourteen years running web publishing for a multi-brand news organization, six sites on Drupal and WordPress, about 2M visitors a year. Builds and publishes content, handles day-to-day CMS work, QA launches, and writes the documentation that lets people publish without waiting on a developer.",
+      "knowsAbout": [
+        "Drupal",
+        "WordPress",
+        "CMS administration",
+        "Publishing infrastructure",
+        "Editorial workflows",
+        "HTML",
+        "CSS",
+        "PHP",
+        "JavaScript",
+        "AI Assisted Workflows",
+        "Google Analytics",
+        "Google Tag Manager",
+        "Google Ad Manager",
+        "SEO"
+      ],
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "School of Visual Arts" },
+        { "@type": "CollegeOrUniversity", "name": "SUNY Fredonia" },
+        { "@type": "CollegeOrUniversity", "name": "Nassau Community College" }
+      ],
+      "award": [
+        "NENPA Best Overall Website, 1st",
+        "NENPA Website Interactivity and Engagement, 1st",
+        "EPPY Award, Best Newspaper Site",
+        "NENPA Digital Strategy Excellence and Website Design, 1st"
+      ]
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -507,7 +570,7 @@
     <header class="hero">
       <img
         class="headshot"
-        src="https://media.licdn.com/dms/image/v2/D4D03AQHTINHD9KN77Q/profile-displayphoto-scale_400_400/B4DZqU1bVWKUAg-/0/1763433625932?e=1795651200&amp;v=beta&amp;t=wu-FdGl8D6smklHhjVwQi-jdwafgduaeesrv5Tzm7u4"
+        src="/contact-photo.jpg"
         width="120"
         height="120"
         alt="Graham Smith"
@@ -702,7 +765,7 @@
     </section>
 
     <footer>
-      <span>Graham Smith · Director of Digital</span>
+      <span>Graham Smith · Digital Operations</span>
       <span>
         <a href="https://www.linkedin.com/in/grahamgrafx" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         ·
@@ -712,6 +775,28 @@
   </div>
 
   <script>
+    function foldVCardLine(line) {
+      var folded = [];
+      folded.push(line.slice(0, 75));
+      var i = 75;
+      while (i < line.length) {
+        folded.push(" " + line.slice(i, i + 74));
+        i += 74;
+      }
+      return folded;
+    }
+
+    function saveVCard(lines) {
+      var blob = new Blob([lines.join("\r\n")], { type: "text/vcard" });
+      var link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "Graham-Smith.vcf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
+    }
+
     function downloadVCard() {
       // Email is split so it never appears whole in the page source
       var u = ["grahamgrafx"].join("");
@@ -734,14 +819,31 @@
         "END:VCARD"
       ];
 
-      var blob = new Blob([lines.join("\r\n")], { type: "text/vcard" });
-      var link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "Graham-Smith.vcf";
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
+      fetch("contact-photo.jpg")
+        .then(function (res) {
+          if (!res.ok) throw new Error("missing photo");
+          return res.blob();
+        })
+        .then(function (blob) {
+          return new Promise(function (resolve, reject) {
+            var reader = new FileReader();
+            reader.onload = function () {
+              var data = String(reader.result);
+              var comma = data.indexOf(",");
+              resolve(comma === -1 ? data : data.slice(comma + 1));
+            };
+            reader.onerror = function () { reject(reader.error); };
+            reader.readAsDataURL(blob);
+          });
+        })
+        .then(function (b64) {
+          var card = lines.slice(0, -1).concat(foldVCardLine("PHOTO;ENCODING=b;TYPE=JPEG:" + b64));
+          card.push("END:VCARD");
+          saveVCard(card);
+        })
+        .catch(function () {
+          saveVCard(lines);
+        });
     }
 
     document.getElementById("save-contact").addEventListener("click", downloadVCard);
